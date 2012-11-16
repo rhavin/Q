@@ -1,18 +1,22 @@
+require 'i18n'
 require 'Q/address'
 require 'Q/phone'
-require 'Q/bank_account'
+require 'Q/bankaccount'
 require 'Q/version'
 require 'Q/console'
+require 'Q/validator'
 
+def t(text);I18n.t(text);end
+I18n.load_path = Dir['lang/**/*.yml']
 # Namespace providing module for common widely used data structures
 # currently providing:
-# [Q::phone]
+# [Q::Phone]
 #   telephone numbers
-# [Q::bank_account]
+# [Q::BankAccount]
 #   IBAN/BIC and KNR/BLZ self-containing account class
-# [Q::address]
+# [Q::Address]
 #   real-world adresses
-# [Q::console]
+# [Q::Console]
 #   programm service ans maintainance information
 module Q
 

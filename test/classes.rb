@@ -5,7 +5,7 @@ include Q
 
 
 
-puts Console.txHead("DataCore V#{VERSION} by .rhavin for ShadwTec q-pool")
+puts Console.txHead("Q V#{VERSION} by .rhavin for ShadwTec q-pool")
 
 fone = Phone.new('+491776660099')
 puts fone

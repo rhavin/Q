@@ -2,13 +2,13 @@
 
 require 'optparse'
 require 'Q'
-include 'Q'
+include Q
 
 number = '+491776660099'
 
 optparse = OptionParser.new do |opts|
   # topline banner for help
-  opts.banner = 'Testscript for DataCore::Phone class'
+  opts.banner = Console.txHead('Testscript for DataCore::Phone class')
   opts.on('-n', '--number NUM', 'set number to test') do |num|
     number = num
   end
@@ -21,9 +21,6 @@ end
 
 optparse.parse!
 
-puts 'DataCore by .rhavin for ShadwTec q-pool'
-puts 'V' + DataCore::VERSION
-
-fone = DataCore::Phone.new(number)
+fone = Phone.new(number)
 puts fone
 puts fone.inspect

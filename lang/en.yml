@@ -1,0 +1,5 @@
+en:
+  bankaccount_inv_bic: Invalid BIC %1$_S, should be %2$_d or %3$_d!
+  bankaccount_inv_iban: Invalid IBAN %1$_S, should be up to %2$_d latin alphanumeric chars.
+  bankaccount_ibancheckerror: Invalid IBAN %1$_S, checksum test failed!
+  bankaccount_unknown_mode: Bankaccount initialized with unknown mode %1$_S!
