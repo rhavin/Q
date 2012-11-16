@@ -3,6 +3,12 @@ module Q
   # this class is used by users and firms
   class Address
 
+    attr_reader :plz, :town, :street, :number, :country, :state
+
+    def initialize(plzOrZip, town, street, number, country, state)
+      
+    end
+
   end
 end
 
