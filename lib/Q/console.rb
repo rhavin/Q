@@ -25,13 +25,21 @@ module Q
     def Console.txUnderline(text); "\e[4m#{text}\e[24m"; end
     def Console.txBold(text); "\e[1m#{text}\e[22m"; end
 
-    # Common ANSI-color shortcuts
+    # == Common ANSI-color shortcuts
+
+    # render given *text* with COLOR_ALERT
     def Console.txAlert(text); txColorize(text, COLOR_ALERT); end
+    # render given *text* with COLOR_WARN
     def Console.txWarn(text); txColorize(text, COLOR_WARN); end
+    # render given *text* with COLOR_CONFIRM
     def Console.txConfirm(text); txColorize(text, COLOR_CONFIRM); end
+    # render given *text* with COLOR_NOTE
     def Console.txNote(text); txColorize(text, COLOR_NOTE); end
+    # render given *text* as a skript head, currently hardcoded bright blue
     def Console.txHead(text); txColorize(txBold(text), COLOR_BLUE); end
+    # render given *text* as object- or module- reference
     def Console.txRef(text); txColorize(text, COLOR_MAGENTA); end
+    # render given *text* as representation of given code
     def Console.txCode(text); txColorize(text, COLOR_CYAN); end
 
     # This is an extented sprintf-function that allowes usage of _type
@@ -64,7 +72,7 @@ module Q
       out(txColorize('NYI: ' + txBold(text) + ' at ' + caller[0], COLOR_NOTE))
     end
 
-    # shortcut to sanitize given string ant output it to console
+    # shortcut to sanitize given string and output it to console
     def Console.out(str)
       puts txSanitize!(str)
     end

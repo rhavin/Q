@@ -126,6 +126,8 @@
 
   <div id="description" class="description">
     
+<p>The validator provides common functionality for all validatable objects.</p>
+
   </div><!-- description -->
 
   
@@ -157,12 +159,13 @@
 
         <div class="method-description">
           
-          
+          <p>initialize this object with a reference to the validatable object and a
+function called if object gets invalid</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/Q/validator.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/Q/validator.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">onInvalidateFn</span>)
   <span class="ruby-ivar">@obj</span>   = <span class="ruby-identifier">obj</span>
   <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">onInvalidateFn</span>
@@ -194,12 +197,14 @@
 
         <div class="method-description">
           
-          
+          <p>Invalidate the object. Given string <strong>str</strong> contains
+format-code that will be substituted with given attribute array
+<strong>arrAttr</strong>’s elements</p>
           
 
           
           <div class="method-source-code" id="invalidate-source">
-            <pre><span class="ruby-comment"># File lib/Q/validator.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/Q/validator.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">invalidate</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">arrAttr</span>)
   <span class="ruby-constant">Console</span>.<span class="ruby-identifier">out</span>(<span class="ruby-constant">Console</span>.<span class="ruby-identifier">txWarn</span>(<span class="ruby-constant">Console</span>.<span class="ruby-identifier">txFormat</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">arrAttr</span>)))
   <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@block</span>) <span class="ruby-keyword">then</span> <span class="ruby-ivar">@block</span>.<span class="ruby-identifier">call</span>() <span class="ruby-keyword">end</span>

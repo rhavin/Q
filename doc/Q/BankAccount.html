@@ -90,15 +90,9 @@
     
     <li><a href="#method-i-iban-3D">#iban=</a>
     
-    <li><a href="#method-i-inspect">#inspect</a>
-    
     <li><a href="#method-i-knr-3D">#knr=</a>
     
     <li><a href="#method-i-onInvalidate">#onInvalidate</a>
-    
-    <li><a href="#method-i-to_a">#to_a</a>
-    
-    <li><a href="#method-i-to_s">#to_s</a>
     
   </ul>
 </nav>
@@ -450,36 +444,6 @@ alphanumeric latin chars.</p>
       </div><!-- iban-3D-method -->
 
     
-      <div id="method-i-inspect" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">inspect</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="inspect-source">
-            <pre><span class="ruby-comment"># File lib/Q/bankaccount.rb, line 104</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
-  <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txRef</span>(<span class="ruby-string">'BankAccount'</span>) <span class="ruby-operator">+</span> <span class="ruby-string">': mode='</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@mode</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">' ['</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">'|'</span>) <span class="ruby-operator">+</span> <span class="ruby-string">']'</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- inspect-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- inspect-method -->
-
-    
       <div id="method-i-knr-3D" class="method-detail ">
         
         <div class="method-heading">
@@ -538,70 +502,6 @@ alphanumeric latin chars.</p>
 
         
       </div><!-- onInvalidate-method -->
-
-    
-      <div id="method-i-to_a" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_a</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="to_a-source">
-            <pre><span class="ruby-comment"># File lib/Q/bankaccount.rb, line 92</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_a</span>
-  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@mode</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">MODE_KNRBLZ</span>  <span class="ruby-keyword">then</span> [<span class="ruby-ivar">@holder</span>, <span class="ruby-ivar">@institute</span>, <span class="ruby-ivar">@blz</span>, <span class="ruby-ivar">@knr</span>]
-  <span class="ruby-keyword">when</span> <span class="ruby-constant">MODE_IBANBIC</span> <span class="ruby-keyword">then</span> [<span class="ruby-ivar">@holder</span>, <span class="ruby-ivar">@institute</span>, <span class="ruby-ivar">@iban</span>, <span class="ruby-ivar">@bic</span>]
-  <span class="ruby-keyword">else</span> [<span class="ruby-ivar">@holder</span>, <span class="ruby-ivar">@institute</span>]
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_a-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_a-method -->
-
-    
-      <div id="method-i-to_s" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/Q/bankaccount.rb, line 100</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_s-method -->
 
     
     </section><!-- public-instance-method-details -->

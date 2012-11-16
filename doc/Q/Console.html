@@ -258,7 +258,7 @@ href="../Q.html">Q</a></p>
 
           
           <div class="method-source-code" id="nyi-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 63</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">nyi</span>(<span class="ruby-identifier">text</span>)
   <span class="ruby-identifier">out</span>(<span class="ruby-identifier">txColorize</span>(<span class="ruby-string">'NYI: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>) <span class="ruby-operator">+</span> <span class="ruby-string">' at '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">caller</span>[<span class="ruby-value">0</span>], <span class="ruby-constant">COLOR_NOTE</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -283,12 +283,12 @@ href="../Q.html">Q</a></p>
 
         <div class="method-description">
           
-          <p>shortcut to sanitize given string ant output it to console</p>
+          <p>shortcut to sanitize given string and output it to console</p>
           
 
           
           <div class="method-source-code" id="out-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 68</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">out</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-identifier">puts</span> <span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -313,12 +313,13 @@ href="../Q.html">Q</a></p>
 
         <div class="method-description">
           
-          <p>Common ANSI-color shortcuts</p>
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
           
 
           
           <div class="method-source-code" id="txAlert-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 29</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txAlert</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_ALERT</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txAlert-source -->
           
@@ -369,12 +370,12 @@ href="../Q.html">Q</a></p>
 
         <div class="method-description">
           
-          
+          <p>render given <strong>text</strong> as representation of given code</p>
           
 
           
           <div class="method-source-code" id="txCode-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 35</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txCode</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CYAN</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txCode-source -->
           
@@ -426,12 +427,13 @@ href="http://en.wikipedia.org/wiki/ANSI_escape_code">en.wikipedia.org/wiki/ANSI_
 
         <div class="method-description">
           
-          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_CONFIRM">COLOR_CONFIRM</a></p>
           
 
           
           <div class="method-source-code" id="txConfirm-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 31</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txConfirm</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CONFIRM</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txConfirm-source -->
           
@@ -460,7 +462,7 @@ substituted by bold type and _S substituted as code-notifier</p>
 
           
           <div class="method-source-code" id="txFormat-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 39</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txFormat</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">arrVals</span>)
   <span class="ruby-identifier">myStr</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>()
   <span class="ruby-identifier">myStr</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r%(\d*)\$_S/</span>, <span class="ruby-identifier">txCode</span>(<span class="ruby-string">'%\1$s'</span>))
@@ -488,12 +490,13 @@ substituted by bold type and _S substituted as code-notifier</p>
 
         <div class="method-description">
           
-          
+          <p>render given <strong>text</strong> as a skript head, currently hardcoded
+bright blue</p>
           
 
           
           <div class="method-source-code" id="txHead-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txHead</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>), <span class="ruby-constant">COLOR_BLUE</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txHead-source -->
           
@@ -516,12 +519,13 @@ substituted by bold type and _S substituted as code-notifier</p>
 
         <div class="method-description">
           
-          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_NOTE">COLOR_NOTE</a></p>
           
 
           
           <div class="method-source-code" id="txNote-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 32</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txNote</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_NOTE</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txNote-source -->
           
@@ -544,12 +548,12 @@ substituted by bold type and _S substituted as code-notifier</p>
 
         <div class="method-description">
           
-          
+          <p>render given <strong>text</strong> as object- or module- reference</p>
           
 
           
           <div class="method-source-code" id="txRef-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 34</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txRef</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_MAGENTA</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txRef-source -->
           
@@ -578,7 +582,7 @@ simply because most terminals dont implement a color-stack</p>
 
           
           <div class="method-source-code" id="txSanitize-21-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 48</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-identifier">color</span> = [<span class="ruby-value">9</span>]
   <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r\e\[3([^m]+)m/</span>) <span class="ruby-keyword">do</span>
@@ -641,12 +645,13 @@ simply because most terminals dont implement a color-stack</p>
 
         <div class="method-description">
           
-          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_WARN">COLOR_WARN</a></p>
           
 
           
           <div class="method-source-code" id="txWarn-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 30</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txWarn</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_WARN</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txWarn-source -->
           

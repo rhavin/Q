@@ -89,7 +89,7 @@ module Q
       @knr=k
     end
 
-    def to_a
+    def to_a # :nodoc:
       case @mode
       when MODE_KNRBLZ  then [@holder, @institute, @blz, @knr]
       when MODE_IBANBIC then [@holder, @institute, @iban, @bic]
@@ -97,11 +97,11 @@ module Q
       end
     end
 
-    def to_s
+    def to_s # :nodoc:
       to_a.join("\n")
     end
 
-    def inspect
+    def inspect # :nodoc:
       Console.txRef('BankAccount') + ': mode=' + @mode.to_s + ' [' + to_a.join('|') + ']'
     end
 

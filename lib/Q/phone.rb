@@ -4,15 +4,16 @@ module Q
   class Phone
     attr_accessor :number
 
+    # initialize new object with given number *num*
     def initialize(num)
       @number = num
     end
 
-    def to_s
+    def to_s # :nodoc:
       @number
     end
 
-    def inspect
+    def inspect # :nodoc:
       'Phone: [' + @number + ']'
     end
 

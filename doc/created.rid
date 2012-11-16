@@ -1,11 +1,11 @@
-Fri, 16 Nov 2012 04:17:18 +0100
+Fri, 16 Nov 2012 05:23:54 +0100
 ./lib/Q/version.rb	Fri, 16 Nov 2012 04:04:38 +0100
 ./lib/Q/address.rb	Thu, 15 Nov 2012 19:06:25 +0100
-./lib/Q/validator.rb	Fri, 16 Nov 2012 02:45:29 +0100
-./lib/Q/bankaccount.rb	Fri, 16 Nov 2012 03:43:08 +0100
-./lib/Q/console.rb	Fri, 16 Nov 2012 04:03:33 +0100
-./lib/Q/phone.rb	Thu, 15 Nov 2012 19:07:36 +0100
-./lib/Q.rb	Fri, 16 Nov 2012 00:38:47 +0100
+./lib/Q/validator.rb	Fri, 16 Nov 2012 05:22:19 +0100
+./lib/Q/bankaccount.rb	Fri, 16 Nov 2012 05:20:43 +0100
+./lib/Q/console.rb	Fri, 16 Nov 2012 05:14:16 +0100
+./lib/Q/phone.rb	Fri, 16 Nov 2012 05:22:04 +0100
+./lib/Q.rb	Fri, 16 Nov 2012 04:55:02 +0100
 ./update	Thu, 15 Nov 2012 19:10:13 +0100
 ./test/Phone.rb	Thu, 15 Nov 2012 19:53:23 +0100
 ./test/BankAccount.rb	Fri, 16 Nov 2012 02:48:47 +0100
