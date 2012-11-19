@@ -55,7 +55,17 @@
   </div>
 
   <div id="class-metadata">
+    <nav id="sections-section" class="section">
+  <h3 class="section-header">Sections</h3>
+  <ul class="link-list">
     
+      <li><a href="#5Buntitled-5D"></a></li>
+    
+      <li><a href="#console+constants">console constants</a></li>
+    
+  </ul>
+</nav>
+
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
@@ -163,6 +173,469 @@ href="../Q.html">Q</a></p>
     
 
     
+    <div class="description">
+      
+<p>ansi-wrappers, see <a
+href="http://en.wikipedia.org/wiki/ANSI_escape_code">en.wikipedia.org/wiki/ANSI_escape_code</a></p>
+
+    </div>
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-nyi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nyi</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>reminder of NOT YET IMPLEMENTED functionality</p>
+          
+
+          
+          <div class="method-source-code" id="nyi-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">nyi</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">out</span>(<span class="ruby-identifier">txColorize</span>(<span class="ruby-string">'NYI: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>) <span class="ruby-operator">+</span> <span class="ruby-string">' at '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">caller</span>[<span class="ruby-value">0</span>], <span class="ruby-constant">COLOR_NOTE</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nyi-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nyi-method -->
+
+    
+      <div id="method-c-out" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">out</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>shortcut to sanitize given string and output it to console</p>
+          
+
+          
+          <div class="method-source-code" id="out-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">out</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- out-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- out-method -->
+
+    
+      <div id="method-c-txAlert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txAlert</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
+          
+
+          
+          <div class="method-source-code" id="txAlert-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txAlert</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_ALERT</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txAlert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txAlert-method -->
+
+    
+      <div id="method-c-txBold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txBold</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="txBold-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>); <span class="ruby-node">&quot;\e[1m#{text}\e[22m&quot;</span>; <span class="ruby-keyword">end</span></pre>
+          </div><!-- txBold-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txBold-method -->
+
+    
+      <div id="method-c-txCode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txCode</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> as representation of given code</p>
+          
+
+          
+          <div class="method-source-code" id="txCode-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txCode</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CYAN</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txCode-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txCode-method -->
+
+    
+      <div id="method-c-txColorize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txColorize</span><span
+            class="method-args">(text, color)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="txColorize-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">color</span>); <span class="ruby-node">&quot;\e[3#{color}m#{text}\e[39m&quot;</span>; <span class="ruby-keyword">end</span></pre>
+          </div><!-- txColorize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txColorize-method -->
+
+    
+      <div id="method-c-txConfirm" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txConfirm</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_CONFIRM">COLOR_CONFIRM</a></p>
+          
+
+          
+          <div class="method-source-code" id="txConfirm-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txConfirm</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CONFIRM</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txConfirm-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txConfirm-method -->
+
+    
+      <div id="method-c-txFormat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txFormat</span><span
+            class="method-args">(str, arrVals)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This is an extented sprintf-function that allowes usage of _type
+substituted by bold type and _S substituted as code-notifier</p>
+          
+
+          
+          <div class="method-source-code" id="txFormat-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txFormat</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">arrVals</span>)
+  <span class="ruby-identifier">myStr</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>()
+  <span class="ruby-identifier">myStr</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r%(\d*)\$_S/</span>, <span class="ruby-identifier">txCode</span>(<span class="ruby-string">'%\1$s'</span>))
+  <span class="ruby-identifier">myStr</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r%(\d*)\$_(.)/</span>, <span class="ruby-identifier">txBold</span>(<span class="ruby-string">'%\1$\2'</span>))
+  <span class="ruby-identifier">sprintf</span>(<span class="ruby-identifier">myStr</span>, *<span class="ruby-identifier">arrVals</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- txFormat-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txFormat-method -->
+
+    
+      <div id="method-c-txHead" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txHead</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> as a skript head, currently hardcoded
+bright blue</p>
+          
+
+          
+          <div class="method-source-code" id="txHead-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txHead</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>), <span class="ruby-constant">COLOR_BLUE</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txHead-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txHead-method -->
+
+    
+      <div id="method-c-txNote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txNote</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_NOTE">COLOR_NOTE</a></p>
+          
+
+          
+          <div class="method-source-code" id="txNote-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txNote</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_NOTE</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txNote-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txNote-method -->
+
+    
+      <div id="method-c-txRef" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txRef</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> as object- or module- reference</p>
+          
+
+          
+          <div class="method-source-code" id="txRef-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txRef</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_MAGENTA</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txRef-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txRef-method -->
+
+    
+      <div id="method-c-txSanitize-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txSanitize!</span><span
+            class="method-args">(str)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>reinterpret ansi-color ‘default’ as last set color in given string this is
+simply because most terminals dont implement a color-stack</p>
+          
+
+          
+          <div class="method-source-code" id="txSanitize-21-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">color</span> = [<span class="ruby-value">9</span>]
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r\e\[3([^m]+)m/</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-node">$1</span> <span class="ruby-operator">==</span> <span class="ruby-string">'9'</span>)
+      <span class="ruby-identifier">color</span>.<span class="ruby-identifier">pop</span>()
+      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">color</span>.<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">color</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">$1</span>)
+      <span class="ruby-identifier">c</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-node">&quot;\e[3#{c}m&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- txSanitize-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txSanitize-21-method -->
+
+    
+      <div id="method-c-txUnderline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txUnderline</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="txUnderline-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txUnderline</span>(<span class="ruby-identifier">text</span>); <span class="ruby-node">&quot;\e[4m#{text}\e[24m&quot;</span>; <span class="ruby-keyword">end</span></pre>
+          </div><!-- txUnderline-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txUnderline-method -->
+
+    
+      <div id="method-c-txWarn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">txWarn</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>render given <strong>text</strong> with <a
+href="Console.html#COLOR_WARN">COLOR_WARN</a></p>
+          
+
+          
+          <div class="method-source-code" id="txWarn-source">
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txWarn</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_WARN</span>); <span class="ruby-keyword">end</span></pre>
+          </div><!-- txWarn-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- txWarn-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+  
+  
+  <section id="console+constants" class="documentation-section">
+    
+    <div class="documentation-section-title">
+      <h2 class="section-header">
+        console constants
+      </h2>
+      <span class="section-click-top">
+        <a href="#top">&uarr; top</a>
+      </span>
+    </div>
+    
+
+    
+    <div class="description">
+      
+<p>ansi console color constants</p>
+
+    </div>
+    
 
     
     <!-- Constants -->
@@ -177,7 +650,7 @@ href="../Q.html">Q</a></p>
       
         <dt id="COLOR_BLACK">COLOR_BLACK
         
-        <dd class="description"><p>ansi console color constants</p>
+        <dd class="description">
         
       
         <dt id="COLOR_BLUE">COLOR_BLUE
@@ -238,434 +711,7 @@ href="../Q.html">Q</a></p>
 
     <!-- Methods -->
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Class Methods</h3>
-
-    
-      <div id="method-c-nyi" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">nyi</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>reminder of NOT YET IMPLEMENTED functionality</p>
-          
-
-          
-          <div class="method-source-code" id="nyi-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 71</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">nyi</span>(<span class="ruby-identifier">text</span>)
-  <span class="ruby-identifier">out</span>(<span class="ruby-identifier">txColorize</span>(<span class="ruby-string">'NYI: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>) <span class="ruby-operator">+</span> <span class="ruby-string">' at '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">caller</span>[<span class="ruby-value">0</span>], <span class="ruby-constant">COLOR_NOTE</span>))
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- nyi-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- nyi-method -->
-
-    
-      <div id="method-c-out" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">out</span><span
-            class="method-args">(str)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>shortcut to sanitize given string and output it to console</p>
-          
-
-          
-          <div class="method-source-code" id="out-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 76</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">out</span>(<span class="ruby-identifier">str</span>)
-  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- out-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- out-method -->
-
-    
-      <div id="method-c-txAlert" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txAlert</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> with <a
-href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
-          
-
-          
-          <div class="method-source-code" id="txAlert-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txAlert</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_ALERT</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txAlert-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txAlert-method -->
-
-    
-      <div id="method-c-txBold" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txBold</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="txBold-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>); <span class="ruby-node">&quot;\e[1m#{text}\e[22m&quot;</span>; <span class="ruby-keyword">end</span></pre>
-          </div><!-- txBold-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txBold-method -->
-
-    
-      <div id="method-c-txCode" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txCode</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> as representation of given code</p>
-          
-
-          
-          <div class="method-source-code" id="txCode-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 43</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txCode</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CYAN</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txCode-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txCode-method -->
-
-    
-      <div id="method-c-txColorize" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txColorize</span><span
-            class="method-args">(text, color)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>ansi-wrappers, see <a
-href="http://en.wikipedia.org/wiki/ANSI_escape_code">en.wikipedia.org/wiki/ANSI_escape_code</a></p>
-          
-
-          
-          <div class="method-source-code" id="txColorize-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">color</span>); <span class="ruby-node">&quot;\e[3#{color}m#{text}\e[39m&quot;</span>; <span class="ruby-keyword">end</span></pre>
-          </div><!-- txColorize-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txColorize-method -->
-
-    
-      <div id="method-c-txConfirm" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txConfirm</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> with <a
-href="Console.html#COLOR_CONFIRM">COLOR_CONFIRM</a></p>
-          
-
-          
-          <div class="method-source-code" id="txConfirm-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txConfirm</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CONFIRM</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txConfirm-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txConfirm-method -->
-
-    
-      <div id="method-c-txFormat" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txFormat</span><span
-            class="method-args">(str, arrVals)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>This is an extented sprintf-function that allowes usage of _type
-substituted by bold type and _S substituted as code-notifier</p>
-          
-
-          
-          <div class="method-source-code" id="txFormat-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 47</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txFormat</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">arrVals</span>)
-  <span class="ruby-identifier">myStr</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>()
-  <span class="ruby-identifier">myStr</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r%(\d*)\$_S/</span>, <span class="ruby-identifier">txCode</span>(<span class="ruby-string">'%\1$s'</span>))
-  <span class="ruby-identifier">myStr</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r%(\d*)\$_(.)/</span>, <span class="ruby-identifier">txBold</span>(<span class="ruby-string">'%\1$\2'</span>))
-  <span class="ruby-identifier">sprintf</span>(<span class="ruby-identifier">myStr</span>, *<span class="ruby-identifier">arrVals</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- txFormat-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txFormat-method -->
-
-    
-      <div id="method-c-txHead" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txHead</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> as a skript head, currently hardcoded
-bright blue</p>
-          
-
-          
-          <div class="method-source-code" id="txHead-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 39</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txHead</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>), <span class="ruby-constant">COLOR_BLUE</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txHead-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txHead-method -->
-
-    
-      <div id="method-c-txNote" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txNote</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> with <a
-href="Console.html#COLOR_NOTE">COLOR_NOTE</a></p>
-          
-
-          
-          <div class="method-source-code" id="txNote-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txNote</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_NOTE</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txNote-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txNote-method -->
-
-    
-      <div id="method-c-txRef" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txRef</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> as object- or module- reference</p>
-          
-
-          
-          <div class="method-source-code" id="txRef-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txRef</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_MAGENTA</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txRef-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txRef-method -->
-
-    
-      <div id="method-c-txSanitize-21" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txSanitize!</span><span
-            class="method-args">(str)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>reinterpret ansi-color ‘default’ as last set color in given string this is
-simply because most terminals dont implement a color-stack</p>
-          
-
-          
-          <div class="method-source-code" id="txSanitize-21-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 56</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
-  <span class="ruby-identifier">color</span> = [<span class="ruby-value">9</span>]
-  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r\e\[3([^m]+)m/</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">if</span> (<span class="ruby-node">$1</span> <span class="ruby-operator">==</span> <span class="ruby-string">'9'</span>)
-      <span class="ruby-identifier">color</span>.<span class="ruby-identifier">pop</span>()
-      <span class="ruby-identifier">c</span> = <span class="ruby-identifier">color</span>.<span class="ruby-identifier">last</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">color</span>.<span class="ruby-identifier">push</span>(<span class="ruby-node">$1</span>)
-      <span class="ruby-identifier">c</span> = <span class="ruby-node">$1</span>
-    <span class="ruby-keyword">end</span>
-    <span class="ruby-node">&quot;\e[3#{c}m&quot;</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- txSanitize-21-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txSanitize-21-method -->
-
-    
-      <div id="method-c-txUnderline" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txUnderline</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="txUnderline-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 25</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txUnderline</span>(<span class="ruby-identifier">text</span>); <span class="ruby-node">&quot;\e[4m#{text}\e[24m&quot;</span>; <span class="ruby-keyword">end</span></pre>
-          </div><!-- txUnderline-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txUnderline-method -->
-
-    
-      <div id="method-c-txWarn" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txWarn</span><span
-            class="method-args">(text)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>render given <strong>text</strong> with <a
-href="Console.html#COLOR_WARN">COLOR_WARN</a></p>
-          
-
-          
-          <div class="method-source-code" id="txWarn-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txWarn</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_WARN</span>); <span class="ruby-keyword">end</span></pre>
-          </div><!-- txWarn-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- txWarn-method -->
-
-    
-    </section><!-- public-class-method-details -->
-  
-  </section><!-- 5Buntitled-5D -->
+  </section><!-- console+constants -->
 
 </div><!-- documentation -->
 

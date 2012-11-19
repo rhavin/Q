@@ -3,7 +3,7 @@ module Q
   # later implementations will add logging and live-maintenance
   # for Q
   class Console
-
+    # :section: console constants 
     # ansi console color constants
     COLOR_BLACK   = 0
     COLOR_RED     = 1
@@ -20,6 +20,7 @@ module Q
     COLOR_CONFIRM = COLOR_GREEN
     COLOR_NOTE    = COLOR_BLUE
 
+    # :section:
     # ansi-wrappers, see http://en.wikipedia.org/wiki/ANSI_escape_code
     def Console.txColorize(text, color); "\e[3#{color}m#{text}\e[39m"; end
     def Console.txUnderline(text); "\e[4m#{text}\e[24m"; end
