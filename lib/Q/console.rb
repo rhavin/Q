@@ -3,18 +3,17 @@ module Q
   # later implementations will add logging and live-maintenance
   # for Q
   class Console
-    # :section: console constants 
-    # ansi console color constants
-    COLOR_BLACK   = 0
-    COLOR_RED     = 1
-    COLOR_GREEN   = 2
-    COLOR_YELLOW  = 3
-    COLOR_BLUE    = 4
-    COLOR_MAGENTA = 5
-    COLOR_CYAN    = 6
-    COLOR_WHITE   = 7
+    # :section: ansi console color constants
+    COLOR_BLACK   = 0 # 0
+    COLOR_RED     = 1 # 1
+    COLOR_GREEN   = 2 # 2
+    COLOR_YELLOW  = 3 # 3
+    COLOR_BLUE    = 4 # 4
+    COLOR_MAGENTA = 5 # 5
+    COLOR_CYAN    = 6 # 6
+    COLOR_WHITE   = 7 # 7
 
-    # functional color aliases
+    # :section: functional color aliases
     COLOR_WARN    = COLOR_YELLOW
     COLOR_ALERT   = COLOR_RED
     COLOR_CONFIRM = COLOR_GREEN
