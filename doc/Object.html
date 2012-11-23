@@ -47,6 +47,8 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
+    <li>lib/Q/filetools.rb
+    <li>lib/Q/rakeoverride.rb
     <li>lib/Q.rb
     <li>test/Phone.rb
     <li>test/FlagValue.rb
@@ -85,6 +87,12 @@
   <h3 class="section-header">Methods</h3>
 
   <ul class="link-list">
+    
+    <li><a href="#method-i-FileCheckCreateDirectory">#FileCheckCreateDirectory</a>
+    
+    <li><a href="#method-i-alias_task">#alias_task</a>
+    
+    <li><a href="#method-i-override_task">#override_task</a>
     
     <li><a href="#method-i-t">#t</a>
     
@@ -129,7 +137,7 @@
   
     <li><a href="./Q/Validator.html">Q::Validator</a>
   
-    <li><a href="./A.html">A</a>
+    <li><a href="./FlagValue.html">FlagValue</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -155,6 +163,24 @@
     
 
     
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="FILEDIR_CANTCREATE">FILEDIR_CANTCREATE
+        
+        <dd class="description"><p>the directory could not be created</p>
+        
+      
+        <dt id="FILEDIR_OK">FILEDIR_OK
+        
+        <dd class="description"><p>the directory exists or have been created</p>
+        
+      
+      </dl>
+    </section>
+    
 
     
 
@@ -162,6 +188,109 @@
     
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
       <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-FileCheckCreateDirectory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">FileCheckCreateDirectory</span><span
+            class="method-args">(dir)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>creates a directory, does not complain, if directory already exists</p>
+          
+
+          
+          <div class="method-source-code" id="FileCheckCreateDirectory-source">
+            <pre><span class="ruby-comment"># File lib/Q/filetools.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">FileCheckCreateDirectory</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">dir</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-constant">FILEDIR_OK</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">FILEDIR_CANTCREATE</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- FileCheckCreateDirectory-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- FileCheckCreateDirectory-method -->
+
+    
+      <div id="method-i-alias_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alias_task</span><span
+            class="method-args">(fq_name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="alias_task-source">
+            <pre><span class="ruby-comment"># File lib/Q/rakeoverride.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alias_task</span>(<span class="ruby-identifier">fq_name</span>)
+  <span class="ruby-identifier">new_name</span> = <span class="ruby-node">&quot;#{fq_name}:original&quot;</span>
+  <span class="ruby-ivar">@tasks</span>[<span class="ruby-identifier">new_name</span>] = <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">fq_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- alias_task-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- alias_task-method -->
+
+    
+      <div id="method-i-override_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">override_task</span><span
+            class="method-args">(*args, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This functions provide the overriding for the caller, usage: <a
+href="Object.html#method-i-override_task">#override_task</a> (name, …) do …
+end</p>
+          
+
+          
+          <div class="method-source-code" id="override_task-source">
+            <pre><span class="ruby-comment"># File lib/Q/rakeoverride.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">override_task</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">deps</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">resolve_args</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">dup</span>)
+  <span class="ruby-identifier">fq_name</span> = <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@scope</span>).<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">':'</span>)
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">alias_task</span>(<span class="ruby-identifier">fq_name</span>)
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>.<span class="ruby-identifier">define_task</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- override_task-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- override_task-method -->
 
     
       <div id="method-i-t" class="method-detail ">

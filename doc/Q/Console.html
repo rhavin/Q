@@ -151,7 +151,7 @@
   
     <li><a href="../Q/Validator.html">Q::Validator</a>
   
-    <li><a href="../A.html">A</a>
+    <li><a href="../FlagValue.html">FlagValue</a>
   
     <li><a href="../Object.html">Object</a>
   
@@ -213,7 +213,7 @@ href="http://en.wikipedia.org/wiki/ANSI_escape_code">en.wikipedia.org/wiki/ANSI_
 
           
           <div class="method-source-code" id="nyi-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 71</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">nyi</span>(<span class="ruby-identifier">text</span>)
   <span class="ruby-identifier">out</span>(<span class="ruby-identifier">txColorize</span>(<span class="ruby-string">'NYI: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>) <span class="ruby-operator">+</span> <span class="ruby-string">' at '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">caller</span>[<span class="ruby-value">0</span>], <span class="ruby-constant">COLOR_NOTE</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -243,7 +243,7 @@ href="http://en.wikipedia.org/wiki/ANSI_escape_code">en.wikipedia.org/wiki/ANSI_
 
           
           <div class="method-source-code" id="out-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 76</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">out</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-identifier">puts</span> <span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -274,7 +274,7 @@ href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
 
           
           <div class="method-source-code" id="txAlert-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 31</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txAlert</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_ALERT</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txAlert-source -->
           
@@ -297,12 +297,13 @@ href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
 
         <div class="method-description">
           
-          
+          <p>format given text in bold format, nesting format strings need call to
+Console#txSanitize</p>
           
 
           
           <div class="method-source-code" id="txBold-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>); <span class="ruby-node">&quot;\e[1m#{text}\e[22m&quot;</span>; <span class="ruby-keyword">end</span></pre>
           </div><!-- txBold-source -->
           
@@ -330,7 +331,7 @@ href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
 
           
           <div class="method-source-code" id="txCode-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 43</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txCode</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CYAN</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txCode-source -->
           
@@ -353,12 +354,13 @@ href="Console.html#COLOR_ALERT">COLOR_ALERT</a></p>
 
         <div class="method-description">
           
-          
+          <p>format given text in given color, nesting format strings need call to
+Console#txSanitize</p>
           
 
           
           <div class="method-source-code" id="txColorize-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 24</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">color</span>); <span class="ruby-node">&quot;\e[3#{color}m#{text}\e[39m&quot;</span>; <span class="ruby-keyword">end</span></pre>
           </div><!-- txColorize-source -->
           
@@ -387,7 +389,7 @@ href="Console.html#COLOR_CONFIRM">COLOR_CONFIRM</a></p>
 
           
           <div class="method-source-code" id="txConfirm-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 35</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txConfirm</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_CONFIRM</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txConfirm-source -->
           
@@ -416,7 +418,7 @@ substituted by bold type and _S substituted as code-notifier</p>
 
           
           <div class="method-source-code" id="txFormat-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 47</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txFormat</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">arrVals</span>)
   <span class="ruby-identifier">myStr</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>()
   <span class="ruby-identifier">myStr</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r%(\d*)\$_S/</span>, <span class="ruby-identifier">txCode</span>(<span class="ruby-string">'%\1$s'</span>))
@@ -450,7 +452,7 @@ bright blue</p>
 
           
           <div class="method-source-code" id="txHead-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 39</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txHead</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">txBold</span>(<span class="ruby-identifier">text</span>), <span class="ruby-constant">COLOR_BLUE</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txHead-source -->
           
@@ -479,7 +481,7 @@ href="Console.html#COLOR_NOTE">COLOR_NOTE</a></p>
 
           
           <div class="method-source-code" id="txNote-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 37</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txNote</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_NOTE</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txNote-source -->
           
@@ -507,7 +509,7 @@ href="Console.html#COLOR_NOTE">COLOR_NOTE</a></p>
 
           
           <div class="method-source-code" id="txRef-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 41</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txRef</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_MAGENTA</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txRef-source -->
           
@@ -536,7 +538,7 @@ simply because most terminals dont implement a color-stack</p>
 
           
           <div class="method-source-code" id="txSanitize-21-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 56</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txSanitize!</span>(<span class="ruby-identifier">str</span>)
   <span class="ruby-identifier">color</span> = [<span class="ruby-value">9</span>]
   <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">%r\e\[3([^m]+)m/</span>) <span class="ruby-keyword">do</span>
@@ -571,12 +573,13 @@ simply because most terminals dont implement a color-stack</p>
 
         <div class="method-description">
           
-          
+          <p>underline given text, nesting format strings need call to
+Console#txSanitize</p>
           
 
           
           <div class="method-source-code" id="txUnderline-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 25</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txUnderline</span>(<span class="ruby-identifier">text</span>); <span class="ruby-node">&quot;\e[4m#{text}\e[24m&quot;</span>; <span class="ruby-keyword">end</span></pre>
           </div><!-- txUnderline-source -->
           
@@ -605,7 +608,7 @@ href="Console.html#COLOR_WARN">COLOR_WARN</a></p>
 
           
           <div class="method-source-code" id="txWarn-source">
-            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/Q/console.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">Console</span>.<span class="ruby-identifier">txWarn</span>(<span class="ruby-identifier">text</span>); <span class="ruby-identifier">txColorize</span>(<span class="ruby-identifier">text</span>, <span class="ruby-constant">COLOR_WARN</span>); <span class="ruby-keyword">end</span></pre>
           </div><!-- txWarn-source -->
           

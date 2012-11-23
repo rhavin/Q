@@ -21,8 +21,17 @@ module Q
 
     # :section:
     # ansi-wrappers, see http://en.wikipedia.org/wiki/ANSI_escape_code
+
+    # format given text in given color, nesting format strings
+    # need call to Console#txSanitize
     def Console.txColorize(text, color); "\e[3#{color}m#{text}\e[39m"; end
+
+    # underline given text, nesting format strings
+    # need call to Console#txSanitize
     def Console.txUnderline(text); "\e[4m#{text}\e[24m"; end
+
+    # format given text in bold format, nesting format strings
+    # need call to Console#txSanitize
     def Console.txBold(text); "\e[1m#{text}\e[22m"; end
 
     # == Common ANSI-color shortcuts

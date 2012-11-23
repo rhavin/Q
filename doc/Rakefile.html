@@ -79,7 +79,7 @@
   
     <li><a href="./Q/Validator.html">Q::Validator</a>
   
-    <li><a href="./A.html">A</a>
+    <li><a href="./FlagValue.html">FlagValue</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -91,7 +91,102 @@
 
 <div id="documentation" class="description">
   
-<p>require “bundler/gem_tasks”</p>
+<p>require ‘bundler/gem_tasks’ require ‘rake’ require ‘rake/extensiontask’
+$myDir = File.dirname(__FILE__)</p>
+
+<p>require $myDir + ‘/lib/Q/console.rb’ require $myDir + ‘/lib/Q/version.rb’
+require $myDir + ‘/lib/Q/rakeoverride.rb’ require $myDir +
+‘/lib/Q/filetools.rb’</p>
+
+<p># this task just prints out a header and gems version number puts <a
+href="Q/Console.html#method-c-txHead">Q::Console.txHead</a>(‘ShadowTec
+Q-Pool Ruby Extension <a href="Q.html">Q</a> V’ + Q::VERSION)</p>
+
+<p># load specifiation from gemspec and create # a task for every extension
+file in # executables. spec = Gem::Specification.load(‘Q.gemspec’)
+spec.executables.each do |f|</p>
+
+<pre class="ruby"><span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">ExtensionTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'Q'</span>, <span class="ruby-identifier">spec</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># extension file is *.so, so we need</span>
+  <span class="ruby-comment"># to chop the extension to get the name</span>
+  <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">name</span>    = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r\.so$/</span>,<span class="ruby-string">''</span>)
+  <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">tmp_dir</span> = <span class="ruby-string">'tmp'</span>
+  <span class="ruby-identifier">ext</span>.<span class="ruby-identifier">lib_dir</span> = <span class="ruby-string">'bin'</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+
+<p># clean environment by removing old binaries override_task :clean do</p>
+
+<pre>puts Q::Console.txNote('cleaning...')
+clear_tmp
+begin
+  Rake::Task[&quot;clean:original&quot;].invoke
+  puts Q::Console.txConfirm('...cleaned!')
+rescue 
+  puts Q::Console.txAlert('could not clean: ' + $!.to_s)
+  exit
+end</pre>
+
+<p>end</p>
+
+<p># initialize directory structure task :init do</p>
+
+<pre>FileCheckCreateDirectory($myDir + '/bin')
+FileCheckCreateDirectory($myDir + '/tmp')</pre>
+
+<p>end</p>
+
+<p># compile module and install to lib override_task :compile do</p>
+
+<pre>puts Q::Console.txNote('compiling...')
+begin
+  Rake::Task[&quot;compile:original&quot;].invoke
+  puts Q::Console.txConfirm('...compiled!')
+rescue Exception
+  puts Q::Console.txAlert('could not compile: ' + $!.to_s)
+  exit
+ensure
+  clear_tmp
+  puts
+end</pre>
+
+<p>end</p>
+
+<p># show commands task :help do</p>
+
+<pre>show_help</pre>
+
+<p>end</p>
+
+<p># also show commands of task was not defined rule ” do |t|</p>
+
+<pre>Q::Console.out(Q::Console.txWarn('Command ' + Q::Console.txBold(t) + ' is unknown!'))
+show_help</pre>
+
+<p>end</p>
+
+<p># build module and install task :build =&gt; [:init, :clean, :compile]</p>
+
+<p>Bundler::GemHelper.install_tasks</p>
+
+<p># remove any temporary files def clear_tmp</p>
+
+<pre>FileUtils.rm_rf(Dir.glob($myDir + '/tmp/*'))</pre>
+
+<p>end</p>
+
+<p># display help screen def show_help</p>
+
+<pre>Q::Console.out(Q::Console.txCode('build') + '      performs init, clean and compile.')
+Q::Console.out(Q::Console.txCode('clean') + '      removes any old binaries from temp-dir.')
+Q::Console.out(Q::Console.txCode('compile') + '    compiles binaries.')
+Q::Console.out(Q::Console.txCode('help') + '       enlists rake-commands (this page).')
+Q::Console.out(Q::Console.txCode('init') + '       creates gems directory structure.')
+puts</pre>
+
+<p>end</p>
 
 </div>
 
