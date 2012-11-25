@@ -1,3 +1,3 @@
 require 'mkmf'
 
-create_makefile('Q/flagvalue')
+create_makefile('Q/Flags')

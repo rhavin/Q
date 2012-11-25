@@ -64,11 +64,13 @@ task :help do
   show_help
 end
 
-# also show commands of task was not defined
-rule '' do |t|
-  Q::Console.out(Q::Console.txWarn('Command ' + Q::Console.txBold(t) + ' is unknown!'))
-  show_help
-end
+
+# also show commands of task was not defined (nice idea but didnt work this way
+# rule '' do |t|
+#   Q::Console.out(Q::Console.txWarn('Command ' + Q::Console.txBold(t) + ' is unknown!'))
+#   show_help
+# end
+
 
 # build module and install
 task :build => [:init, :clean, :compile]

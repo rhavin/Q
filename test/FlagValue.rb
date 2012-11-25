@@ -3,8 +3,8 @@
 require 'Q'
 include Q
 
-# flags = Q::FlagValue.new(0)
-
+flags = FlagValue.new(0)
+puts flags.test()
 # flags |= 6
 # flags &= ~2
 #flags.add(2)
