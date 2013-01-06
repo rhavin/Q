@@ -1,4 +1,5 @@
 require 'i18n'
+require 'Q/Flags'
 require 'Q/address'
 require 'Q/phone'
 require 'Q/bankaccount'

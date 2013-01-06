@@ -14,6 +14,7 @@ public:
   inline int32_t set(int32_t s) {fl |= s; return fl;}
   inline bool    tstSome(int32_t s) const {return (fl & s);}
   inline bool    tstAll(int32_t s) const {return ((fl & s) == s);}
+  inline void    init(int32_t s) {fl = val;}
   inline int32_t clear(int32_t s = ~0) {fl &= ~s; return fl;}
 };
 
@@ -31,7 +32,7 @@ void Init_Flags()
     .define_method("set", &Flags::set)
     .define_method("tstAll", &Flags::tstAll)
     .define_method("tstSome", &Flags::tstSome)
+    .define_method("init", &Flags::init)
     .define_method("clear", &Flags::clear, Arg("clear")=~((int32_t)0));
-//    .define_method("=", &Flags::operator=);
 }
 
