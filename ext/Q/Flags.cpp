@@ -14,7 +14,7 @@ public:
   inline int32_t set(int32_t s) {fl |= s; return fl;}
   inline bool    tstSome(int32_t s) const {return (fl & s);}
   inline bool    tstAll(int32_t s) const {return ((fl & s) == s);}
-  inline void    init(int32_t s) {fl = val;}
+  inline void    init(int32_t s) {fl = s;}
   inline int32_t clear(int32_t s = ~0) {fl &= ~s; return fl;}
 };
 

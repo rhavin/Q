@@ -1,4 +1,4 @@
 module Q
   # module-wide semantic version number, see http://semver.org/ for details. 
-  VERSION = "0.0.2i"
+  VERSION = "0.0.2j"
 end
