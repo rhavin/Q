@@ -15,8 +15,9 @@ Gem::Specification.new do |s|
   s.summary       = %q{core data structures}
   s.description   = %q{Bank Account, Phone-Numbers, Addresses and URLs/URIs .}
   s.files         = `git ls-files`.split($/)
-  # we add all files in ext-directory that end in '.c' to executables ending on '.so'
-  s.executables   = s.files.grep(%r{^ext/.*cpp$}).map{ |f| File.basename(f, '.cpp') + '.so'}
+  # we add all files in ext-directory that end in '.cpp' to executables ending on '.so'
+#  s.executables   = s.files.grep(%r{^ext/.*cpp$}).map{ |f| File.basename(f, '.cpp') + '.so'}
+  s.executables   = ['Q']
   s.extensions    = ['ext/Q/extconf.rb']
   s.bindir        = 'bin'
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
