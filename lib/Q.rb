@@ -1,11 +1,12 @@
 require 'i18n'
 require 'Q/Flags'
+require 'Q/AdrFlaggedObj.rb'
 require 'Q/Address'
 require 'Q/phone'
 require 'Q/BankAccount'
 require 'Q/VERSION'
 require 'Q/Console'
-require 'Q/validator'
+require 'Q/Validator'
 require 'Q/filetools'
 require 'Q/AdrType'
 

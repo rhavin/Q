@@ -16,7 +16,12 @@ module Q
     # elements
     def invalidate(str, arrAttr)
       Console.out(Console.txWarn(Console.txFormat(str, arrAttr)))
-      if (@block) then @block.call() end
+      if (@block) then @block.call(false) end
+    end
+
+    # return object to valid state
+    def valid()
+      if (@block) then @block.call(true) end
     end
   end
 end

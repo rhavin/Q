@@ -22,6 +22,8 @@ module Q
     # constructor, specify mode constant MODE_.. for account
     def initialize(mode, ibanOrKnr, bicOrBlz, holder, institute)
       @mode = mode
+      # original mode saved for automatic revalidation thru validator
+      @oldmode = mode
       @validator = Validator.new(self, method(:onInvalidate))
       case mode
       when MODE_KNRBLZ
@@ -46,8 +48,12 @@ module Q
     end
 
     # handler called if object has been invalidated
-    def onInvalidate()
-      @mode = MODE_INVALID
+    def onInvalidate(valid)
+      if (valid)
+        @mode = @oldmode
+      else
+        @mode = MODE_INVALID
+      end
     end
   
     # Set account to given IBAN. An IBAN consists of up to 34
@@ -57,6 +63,7 @@ module Q
       # we accept separating whitespace but remove it
       setI.gsub!(/\s+/, '')
       unless (setI.match(/^[0-9A-Z]{6,34}$/))
+        @oldmode = mode
         @validator.invalidate(t(:bankaccount_inv_iban), [i, 34]) 
         return
       end
@@ -77,6 +84,7 @@ module Q
       if (setB.match(/^[0-9A-Z]{11}$/))
         @bic = setB
       else
+        @oldmode = mode
         @validator.invalidate(t(:bankaccount_inv_bic), [b, 8, 11]) 
       end
     end

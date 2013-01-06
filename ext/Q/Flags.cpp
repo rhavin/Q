@@ -5,8 +5,9 @@
 class Flags
 {
   int32_t fl; 
+  bool valid;
 public:
-  Flags(int32_t val = 0) : fl(val) {};
+  Flags(int32_t flags = 0) : fl(flags), valid(true) {};
 
   inline operator int32_t() const {return fl;}
   inline Flags&  operator=(int32_t const& val) {fl = val; return *this;}
@@ -16,6 +17,8 @@ public:
   inline bool    tstAll(int32_t s) const {return ((fl & s) == s);}
   inline void    init(int32_t s) {fl = s;}
   inline int32_t clear(int32_t s = ~0) {fl &= ~s; return fl;}
+  inline bool    isValid() const {return valid;}
+  inline void    setValid(bool v) {valid = v;}
 
   static inline bool isSingleBit(int32_t s) {return (s!=0 && (s & (s-1))==0);}
 };
@@ -36,6 +39,8 @@ void Init_Flags()
     .define_method("tstSome?", &Flags::tstSome)
     .define_method("init", &Flags::init)
     .define_method("clear", &Flags::clear, Arg("clear")=~((int32_t)0))
+    .define_method("valid?", &Flags::isValid)
+    .define_method("setValid", &Flags::setValid)
     .define_singleton_method("isSingleBit?", &Flags::isSingleBit)
     ;
 }
