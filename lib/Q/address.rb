@@ -4,6 +4,8 @@ module Q
   class Address
 
     attr_reader :plz, :town, :street, :number, :country, :state
+    
+    @type = Q::Flags.new()
 
     def initialize(plzOrZip, town, street, number, country, state)
       
