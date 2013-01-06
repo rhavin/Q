@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split($/)
   # we add all files in ext-directory that end in '.cpp' to executables ending on '.so'
 #  s.executables   = s.files.grep(%r{^ext/.*cpp$}).map{ |f| File.basename(f, '.cpp') + '.so'}
-  s.executables   = ['Q']
+#  s.executables   = ['Q']
   s.extensions    = ['ext/Q/extconf.rb']
-  s.bindir        = 'bin'
+#  s.bindir        = 'bin'
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 end
