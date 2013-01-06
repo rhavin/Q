@@ -1,13 +1,13 @@
 require 'i18n'
-require 'Q/flags'
-require 'Q/address'
+require 'Q/Flags'
+require 'Q/Address'
 require 'Q/phone'
-require 'Q/bankaccount'
-require 'Q/version'
-require 'Q/console'
+require 'Q/BankAccount'
+require 'Q/VERSION'
+require 'Q/Console'
 require 'Q/validator'
 require 'Q/filetools'
-require 'Q/adrtypes'
+require 'Q/AdrType'
 
 # Macro-like helper handling localization of strings from I18n module
 def t(text);I18n.t(text);end

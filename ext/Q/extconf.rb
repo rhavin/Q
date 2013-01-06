@@ -1,3 +1,3 @@
 require 'mkmf-rice'
 
-create_makefile('Q/flags')
+create_makefile('Q/Flags')

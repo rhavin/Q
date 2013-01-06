@@ -3,3 +3,17 @@ en:
   bankaccount_inv_iban: Invalid IBAN %1$_S, should be up to %2$_d latin alphanumeric chars.
   bankaccount_ibancheckerror: Invalid IBAN %1$_S, checksum test failed!
   bankaccount_unknown_mode: Bankaccount initialized with unknown mode %1$_S!
+
+  AdrType_FAX: Allows FAX receiving
+  AdrType_MAIL: Allows MAIL receiving
+  AdrType_POSTAL: Postal Address
+  AdrType_FONE: Fone Number
+  AdrType_ICQ: ICQ Contact
+  AdrType_FACEBOOK: Facebook Profile
+  AdrType_XING: XING Profile
+  AdrType_DOMAIN: Domain / Homepage
+  AdrType_BILLING: Eligible for billing
+  AdrType_ADMIN: Administrative contact
+  AdrType_ADVERTISE: Advertising allowed
+  AdrType_NEWSLETTER: Accepts Newsletter
+

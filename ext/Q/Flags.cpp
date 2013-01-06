@@ -16,6 +16,8 @@ public:
   inline bool    tstAll(int32_t s) const {return ((fl & s) == s);}
   inline void    init(int32_t s) {fl = s;}
   inline int32_t clear(int32_t s = ~0) {fl &= ~s; return fl;}
+
+  static inline bool isSingleBit(int32_t s) {return (s!=0 && (s & (s-1))==0);}
 };
 
 using namespace Rice;
@@ -26,13 +28,15 @@ void Init_Flags()
 
   Module rb_cModule = define_module("Q");
   Class rb_cFlags =
-    define_class_under<Flags>(rb_cModule, "flags")
+    define_class_under<Flags>(rb_cModule, "Flags")
     .define_constructor(Constructor<Flags, int32_t>(),Arg("init")=0)
     .define_method("get", &Flags::get)
     .define_method("set", &Flags::set)
-    .define_method("tstAll", &Flags::tstAll)
-    .define_method("tstSome", &Flags::tstSome)
+    .define_method("tstAll?", &Flags::tstAll)
+    .define_method("tstSome?", &Flags::tstSome)
     .define_method("init", &Flags::init)
-    .define_method("clear", &Flags::clear, Arg("clear")=~((int32_t)0));
+    .define_method("clear", &Flags::clear, Arg("clear")=~((int32_t)0))
+    .define_singleton_method("isSingleBit?", &Flags::isSingleBit)
+    ;
 }
 

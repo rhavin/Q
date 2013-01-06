@@ -3,8 +3,8 @@ require 'rake'
 require 'rake/extensiontask'
 $myDir = File.dirname(__FILE__)
 
-require $myDir + '/lib/Q/console.rb'
-require $myDir + '/lib/Q/version.rb'
+require $myDir + '/lib/Q/Console.rb'
+require $myDir + '/lib/Q/VERSION.rb'
 require $myDir + '/lib/Q/rakeoverride.rb'
 require $myDir + '/lib/Q/filetools.rb'
 

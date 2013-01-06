@@ -2,7 +2,7 @@ module Q
   # This module provides generic flags-constants for addresses, urls,
   # fone-numbers, mail-accounts etc. All those flags may be logically
   # combined and tested against the group-flags.^
-  module adrtype
+  module AdrType
     # Allows FAX receiving
     FAX       = 0x0000001
     # Allows MAIL receiving
@@ -33,9 +33,32 @@ module Q
     # Flags allowed for mail-adresses
     MAILFLAGS = MAIL | BILLING | ADMIN | ADVERTISE | NEWS
     # Flags allowed for fone numbers
-    FONEFLAGS = FONE | FAX | ADMIN | BILLING
+    FONEFLAGS = FONE | FAX | ADMIN | BILLING
     # Flags allowed for postal addresses
     POSTFLAGS = POSTAL | BILLING | ADMIN | ADVERTISE
-    # Flags allowed for 
+    
+    # get user-friendly name for given flag
+    # names defined in lang-directory (i18n-system)
+    # returns first found matching flag
+    def AdrType.getName(s)
+      # we iterate over modules constants 
+      AdrType.constants.each do |c|
+        return t("AdrType_#{c}") if (AdrType.const_get(c) == s)
+      end
+    end
+
+    # get array of user-friendly flag-names for given
+    # flagsvalue s. 
+    def AdrType.getArray(s)
+      ret = Array.new()
+      a = 1
+      # we test each bit by looping thru a bitshift
+      31.times do |f|
+        ret.push(getName(a)) if (s & a != 0) 
+        a <<= 1
+      end
+      return ret
+    end
+ 
   end
 end
