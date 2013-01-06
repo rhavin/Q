@@ -26,7 +26,7 @@ void Init_Flags()
 
   Module rb_cModule = define_module("Q");
   Class rb_cFlags =
-    define_class_under<Flags>(rb_cModule, "Flags")
+    define_class_under<Flags>(rb_cModule, "flags")
     .define_constructor(Constructor<Flags, int32_t>(),Arg("init")=0)
     .define_method("get", &Flags::get)
     .define_method("set", &Flags::set)

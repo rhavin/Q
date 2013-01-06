@@ -11,7 +11,7 @@ module Q
     def initialize(plzOrZip = nil, town = nil, street = nil, number = nil, country = nil, state = nil)
 
       # Flags asoziated with this address
-      @type = Q::Flags.new()
+      @type = Q::flags.new(Q::adrtype::POSTAL)
 
       # PLZ, ZIP-Code or some other country-dependent postal code
       @plz     = plzOrZip
@@ -24,12 +24,12 @@ module Q
 
     # This address may be used for the given flags
     def usageAllow(typeFlags)
-      @type.set(typeFlags)
+      @type.set(typeFlags & Q::adrtype::POSTFLAGS)
     end
 
     # This address shall *not* be used or the given flags
     def usageDeny(typeFlags)
-      @type.clear(typeFlags)
+      @type.clear(typeFlags & Q::adrtype::POSTFLAGS) 
     end
 
     # True if all given flags allowed
