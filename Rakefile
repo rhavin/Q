@@ -16,6 +16,7 @@ puts Q::Console.txHead('ShadowTec Q-Pool Ruby Extension Q V' + Q::VERSION)
 # executables.
 spec = Gem::Specification.load('Q.gemspec')
 spec.executables.each do |f|
+  puts Q::Console.txNote('File: ' + f)
   Rake::ExtensionTask.new('Q', spec) do |ext|
     # extension file is *.so, so we need
     # to chop the extension to get the name
