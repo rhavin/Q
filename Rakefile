@@ -9,7 +9,7 @@ require $myDir + '/lib/Q/rakeoverride.rb'
 require $myDir + '/lib/Q/filetools.rb'
 
 # this task just prints out a header and gems version number
-puts Q::Console.txHead('ShadowTec Q-Pool Ruby Extension Q V' + Q::VERSION)
+puts Q::Console.txHead(Q::LONGVER)
 
 # load specifiation from gemspec and create
 # a task for every extension file in
